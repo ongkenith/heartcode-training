@@ -6,6 +6,7 @@ import {
   } from "@/components/ui/navigation-menu";
 
 import Link from "next/link";
+import { ModeToggle } from "@/components/modetoggle";
 
 export function NavigationBar() {
     return (
@@ -29,6 +30,7 @@ export function NavigationBar() {
                     </NavigationMenuLink>
                 </Link>
             </NavigationMenuItem>
+            <ModeToggle/>
         </NavigationMenu>
     )
 };
