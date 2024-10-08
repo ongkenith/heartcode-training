@@ -6,8 +6,8 @@ import { Terminal } from "lucide-react"
 
 export default function aboutme() {
     return (
-        <div>Hello World, this is the aboutme route
-            <Card>
+        <div>
+            <Card className="text-center ">
                 <CardHeader>
                     <CardTitle>
                         Hello, I am Kenith
@@ -17,13 +17,15 @@ export default function aboutme() {
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <Image src={ImgCat} alt="1"/>
-                    <div className="flex flex-row gap-2">
+                    <div  className="flex justify-center items-center">
+                        <Image src={ImgCat} alt="1"/>
+                    </div>
+                    <div className="flex flex-row gap-2 justify-center">
                         <p className="font-bold">Name:</p>
                         Kenith
                     </div>
-                    <div className="flex flex-row gap-2"><p className="font-bold">Major:</p>Information Systems</div>
-                    <div className="flex flex-row gap-2"><p className="font-bold">Hobbies:</p>I like to code</div>
+                    <div className="flex flex-row gap-2 justify-center"><p className="font-bold">Major:</p>Information Systems</div>
+                    <div className="flex flex-row gap-2 justify-center"><p className="font-bold">Hobbies:</p>I like to code</div>
                 </CardContent>
             </Card>
             <Alert>

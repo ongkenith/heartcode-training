@@ -10,11 +10,14 @@ import { ModeToggle } from "@/components/modetoggle";
 
 export function NavigationBar() {
     return (
-        <NavigationMenu className="list-none h-16">
+        <NavigationMenu className="list-none h-16 justify-between min-w-full h-16 top-0 p-5">
+            <div className="flex flex-row">
             <NavigationMenuItem>
+                <Link href="/" legacyBehavior passHref>
                     <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                         Home
                     </NavigationMenuLink>
+                </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
                 <Link href="/quiz" legacyBehavior passHref>
@@ -30,7 +33,10 @@ export function NavigationBar() {
                     </NavigationMenuLink>
                 </Link>
             </NavigationMenuItem>
-            <ModeToggle/>
+            </div>
+            <div>
+                <ModeToggle/>
+            </div>
         </NavigationMenu>
     )
 };
