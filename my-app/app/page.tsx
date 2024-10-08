@@ -13,7 +13,7 @@ export default function Home() {
         </div>
       </div>
       <div className="mx-2 px-5">
-        <p className="text-2xl">
+        <p className="text-2xl font-medium">
           What is drug abuse?
         </p>
         <div className="px-8 m-2">
@@ -28,8 +28,16 @@ export default function Home() {
           <h2>According to CNB Statistics:</h2>
           <Image src={Img2} alt="1"/>
         </div>
-        <div className="text-center m-3">
-          <p className="text-3xl">Stop the increase, Stop taking drugs TODAY!</p>
+        <div className="my-4 p-3">
+          <p className="text-2xl font-medium">Signs and Symptoms of Drug Abuse</p>
+          <ul className="list-disc mx-2">
+            <li><span className="text-lg">Behavioral Changes:</span> Sudden shifts in mood, aggression, secrecy, or lack of motivation.</li>
+            <li><span className="text-lg">Physical Symptoms:</span> Bloodshot eyes, sudden weight changes, or poor physical coordination.</li>
+            <li><span className="text-lg">Social and Financial Issues:</span> Problems at work, strained relationships, legal troubles, or borrowing money frequently.</li>
+          </ul>
+        </div>
+        <div className="text-center m-3 font-bold">
+          <p className="text-3xl"><span className="text-red-600">Stop</span> <span className="text-orange-600">the</span> <span className="text-yellow-600">increase</span>, <span className="text-green-600">Stop</span> <span className="text-blue-600">taking</span> <span className="text-purple-600">drugs</span> <span className="text-pink-600">TODAY!</span></p>
         </div>
       </div>
     </div>
