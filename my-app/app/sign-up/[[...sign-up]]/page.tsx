@@ -1,5 +1,5 @@
 import { SignUp } from '@clerk/nextjs'
 
 export default function Page() {
-  return <div className='w-[30%] m-auto'><SignUp /></div>
+  return <div className='w-[29%] m-auto'><SignUp /></div>
 }
