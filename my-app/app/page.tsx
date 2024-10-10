@@ -10,7 +10,7 @@ export default function Home() {
       <div className="flex flex-col justify-center h-dvh p-1 text-center">
         <p className="font-bold text-4xl ">Why drugs are BAD</p>
         <p className="text-sm p-2">Do not do drugs, is bad for your health!</p>
-        <div className="text-lg py-2">Taking drugs is <span className="font-extrabold">not</span><FlipWords words={words}/></div>
+        <div className="text-lg py-2">Taking drugs is <span className="font-extrabold text-red-500">NOT</span><FlipWords words={words}/></div>
         <div className="flex justify-center items-center">
           <Image src={Img3} alt="1"/>
         </div>
