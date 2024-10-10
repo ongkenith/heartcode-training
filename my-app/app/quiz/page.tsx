@@ -2,6 +2,7 @@
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
+import { useToast } from "@/hooks/use-toast";
 
 import { Button } from "@/components/ui/button"
 import {
@@ -14,9 +15,9 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-
-import { Label } from "@/components/ui/label"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { insertOneUser } from "../server/user";
 
 
 const formSchema = z.object({
@@ -25,7 +26,7 @@ const formSchema = z.object({
   }).max(10, {
     message: "Username must be below 11 characters."
   }),
-  question1: z.string().min(1,{
+  question1: z.string({
     message: "Please enter your answer"
   }),
   question2: z.string({
@@ -34,6 +35,8 @@ const formSchema = z.object({
 })
 
 export default function quiz() {
+  const { toast } = useToast();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -41,10 +44,20 @@ export default function quiz() {
       question1: "",
     },
   })
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values)
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    toast({
+        	title: "Hello!",
+        	description: "You have submitted the quiz... validating",
+    	})
+    console.log(values);
+    
+    var isDrugUser = true
+
+    if (values.question1 === "no") {
+      isDrugUser = false;
+    }
+
+    await insertOneUser(values.username, isDrugUser);
   }
     return (
       <div className="mx-4">
@@ -73,15 +86,22 @@ export default function quiz() {
             <FormItem>
               <FormLabel>Question 1</FormLabel>
               <FormDescription className="text-grey-100">
-                Why are drugs bad?
+                Do you sell drugs?
               </FormDescription>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
               <FormControl>
-                <Input type="string" placeholder="Answer" {...field} />
+                <SelectTrigger>
+                  <SelectValue placeholder="Please select an answer"/>
+                </SelectTrigger>
               </FormControl>
-              <FormMessage />
+              <SelectContent>
+                <SelectItem value="yes">Yes</SelectItem>
+                <SelectItem value="no">No</SelectItem>
+              </SelectContent>
+              </Select>
             </FormItem>
-          )}
-        />
+                	)}
+            	/>
         <FormField
           control={form.control}
           name="question2"
