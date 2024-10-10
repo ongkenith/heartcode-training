@@ -1,13 +1,16 @@
 import Image from "next/image";
 import Img3 from "@/app/assets/img3.jpg";
 import Img2 from "@/app/assets/img2.png";
+import { FlipWords } from "@/components/ui/flip-words";
 
 export default function Home() {
+  const words: string[] = ["skibidi", "litty", "sigma"];
   return (
     <div>
-      <div className="flex flex-col justify-center h-dvh p-1">
-        <p className="font-bold text-5xl text-center">Why drugs are BAD</p>
-        <p className="text-sm text-center">Do not do drugs, is bad for your health!</p>
+      <div className="flex flex-col justify-center h-dvh p-1 text-center">
+        <p className="font-bold text-4xl ">Why drugs are BAD</p>
+        <p className="text-sm p-2">Do not do drugs, is bad for your health!</p>
+        <div className="text-lg py-2">Taking drugs is <span className="font-extrabold">not</span><FlipWords words={words}/></div>
         <div className="flex justify-center items-center">
           <Image src={Img3} alt="1"/>
         </div>
