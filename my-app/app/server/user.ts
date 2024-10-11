@@ -11,3 +11,7 @@ const db = drizzle(sql, { schema });
 export async function insertOneUser(name: string, isDrugDealer: boolean, ) {
     await db.insert(users).values({name: name, isDrugDealer: isDrugDealer})
 }
+
+export async function showAll() {
+    return db.select().from(users)
+}

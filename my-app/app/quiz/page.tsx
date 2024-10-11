@@ -17,7 +17,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { insertOneUser } from "../server/user";
+import { insertOneUser, showAll } from "../server/user";
 
 
 const formSchema = z.object({
@@ -66,7 +66,11 @@ export default function quiz() {
     }
 
     await insertOneUser(values.username, isDrugUser);
+
+    var database = await showAll();
+    console.log(database);
   }
+
     return (
       <div className="mx-4">
       <Form {...form}>
@@ -150,6 +154,8 @@ export default function quiz() {
           <Button type="submit" className="transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500">Submit</Button>
       </form>
       </Form>
+      <div id="fromDatabase">
+      </div>
     </div>
     );
   }
