@@ -1,10 +1,17 @@
 import Image from "next/image";
 import Img3 from "@/app/assets/img3.jpg";
-import Img2 from "@/app/assets/img2.png";
 import { FlipWords } from "@/components/ui/flip-words";
+import { Component } from "@/components/charts/cnb_stats"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
 
 export default function Home() {
-  const words: string[] = ["skibidi", "litty", "sigma"];
+  const words: string[] = ["acceptable", "good", "ethical"];
   return (
     <div>
       <div className="flex flex-col justify-center h-dvh p-1 text-center">
@@ -27,17 +34,22 @@ export default function Home() {
         <div className="m-3 p-3">
 
         </div>
-        <div>
-          <h2>According to CNB Statistics:</h2>
-          <Image src={Img2} alt="1"/>
-        </div>
+
+        <Component />
+
         <div className="my-4 p-3">
-          <p className="text-2xl font-medium">Signs and Symptoms of Drug Abuse</p>
-          <ul className="list-disc mx-2">
-            <li><span className="text-lg">Behavioral Changes:</span> Sudden shifts in mood, aggression, secrecy, or lack of motivation.</li>
-            <li><span className="text-lg">Physical Symptoms:</span> Bloodshot eyes, sudden weight changes, or poor physical coordination.</li>
-            <li><span className="text-lg">Social and Financial Issues:</span> Problems at work, strained relationships, legal troubles, or borrowing money frequently.</li>
-          </ul>
+        <Accordion type="single" collapsible>
+          <AccordionItem value="item-1">
+            <AccordionTrigger className="text-2xl font-medium">Signs and Symptoms of Drug Abuse</AccordionTrigger>
+            <AccordionContent>
+              <ul className="mx-2">
+                <li><span className="text-lg">Behavioral Changes:</span> Sudden shifts in mood, aggression, secrecy, or lack of motivation.</li>
+                <li><span className="text-lg">Physical Symptoms:</span> Bloodshot eyes, sudden weight changes, or poor physical coordination.</li>
+                <li><span className="text-lg">Social and Financial Issues:</span> Problems at work, strained relationships, legal troubles, or borrowing money frequently.</li>
+              </ul>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
         </div>
         <div className="text-center m-3 font-bold">
           <p className="text-3xl"><span className="text-red-600">Stop</span> <span className="text-orange-600">the</span> <span className="text-yellow-600">increase</span>, <span className="text-green-600">Stop</span> <span className="text-blue-600">taking</span> <span className="text-purple-600">drugs</span> <span className="text-pink-600">TODAY!</span></p>
