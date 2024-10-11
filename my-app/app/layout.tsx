@@ -4,6 +4,7 @@ import "./globals.css";
 import { NavigationBar } from "@/components/navbar/navigation-bar";
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
+import { ClerkProvider} from '@clerk/nextjs'
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,6 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <ClerkProvider>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -37,10 +39,12 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-        <NavigationBar></NavigationBar>{children}
+        <NavigationBar></NavigationBar>
+        {children}
         <Toaster />
         </ThemeProvider>
       </body>
+      </ClerkProvider>
     </html>
   );
 }

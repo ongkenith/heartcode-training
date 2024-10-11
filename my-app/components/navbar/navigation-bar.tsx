@@ -7,6 +7,7 @@ import {
 
 import Link from "next/link";
 import { ModeToggle } from "@/components/modetoggle";
+import {SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 
 export function NavigationBar() {
     return (
@@ -34,8 +35,18 @@ export function NavigationBar() {
                 </Link>
             </NavigationMenuItem>
             </div>
-            <div>
-                <ModeToggle/>
+            <div className=" flex flex-row">
+                <div className="mx-2">
+                    <ModeToggle/>
+                </div>
+                <div className="mx-2 my-1">
+                    <SignedOut>
+                        <SignInButton />
+                    </SignedOut>
+                    <SignedIn>
+                        <UserButton />
+                    </SignedIn>
+                </div>
             </div>
         </NavigationMenu>
     )
