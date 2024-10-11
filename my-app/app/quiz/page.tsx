@@ -17,7 +17,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { insertOneUser } from "../server/user";
+// import { insertOneUser } from "../server/user";
 
 
 const formSchema = z.object({
@@ -44,20 +44,28 @@ export default function quiz() {
       question1: "",
     },
   })
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    toast({
-        	title: "Hello!",
-        	description: "You have submitted the quiz... validating",
-    	})
-    console.log(values);
-    
-    var isDrugUser = true
-
-    if (values.question1 === "no") {
-      isDrugUser = false;
+  function onSubmit(values: z.infer<typeof formSchema>) { // Async if using database
+    // console.log(values);
+    if (values.question2 == "nothing") {
+      toast ({
+        title: `Hi ${values.username}`,
+        description: "Please seek help from relevant organisations!"
+      })
+    }
+    else{
+      toast({
+        title: `Hello! ${values.username}`,
+        description: "You have submitted the quiz",
+      })
     }
 
-    await insertOneUser(values.username, isDrugUser);
+    // var isDrugUser = true
+
+    // if (values.question1 === "no") {
+    //   isDrugUser = false;
+    // }
+
+    // await insertOneUser(values.username, isDrugUser);
   }
     return (
       <div className="mx-4">
@@ -140,9 +148,9 @@ export default function quiz() {
           )}
         />
 
-        <Button type="submit">Submit</Button>
+        <Button type="submit" className="transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500">Submit</Button>
       </form>
-    </Form>
+      </Form>
     </div>
     );
   }

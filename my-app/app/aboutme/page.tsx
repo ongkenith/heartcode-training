@@ -28,13 +28,13 @@ export default function aboutme() {
                     <div className="flex flex-row gap-2 justify-center"><p className="font-bold">Hobbies:</p>I like to code</div>
                 </CardContent>
             </Card>
-            <Alert>
+            {/* <Alert>
                 <Terminal className="h-4 w-4"/>
                     <AlertTitle>Heads up!</AlertTitle>
                     <AlertDescription>
                         This is an alert
-                    </AlertDescription>
-            </Alert>
+                </AlertDescription> 
+            </Alert> */}
         </div>
     );
   }
