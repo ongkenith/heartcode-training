@@ -1,8 +1,8 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import ImgCat from "@/app/assets/img1.png";
-import { Alert,AlertTitle,AlertDescription } from "@/components/ui/alert";
-import { Terminal } from "lucide-react"
+// import { Alert,AlertTitle,AlertDescription } from "@/components/ui/alert";
+// import { Terminal } from "lucide-react"
 
 export default function aboutme() {
     return (
